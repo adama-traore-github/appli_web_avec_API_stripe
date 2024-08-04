@@ -1,0 +1,12 @@
+<h1>New Payment</h1>
+
+<%= form_tag create_payment_path, method: :post do %>
+  <input type="hidden" name="amount" value="500" />
+  <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="<%= Rails.application.credentials.dig(:stripe, :publishable_key) %>"
+    data-amount="500"
+    data-description="Payment description"
+    data-currency="usd">
+  </script>
+<% end %>
